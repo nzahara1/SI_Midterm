@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+aside,
+footer,
+header,
+main,
+nav {
+  display: block;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+article,
+aside,
+footer,
+header,
+main,
+nav,
+section {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f0f0f0;
+}
+nav {
+  padding: 5px;
+  background-color: gray;
+  color: white;
+  margin-top: 1px;
+  border: thin solid cornflowerblue;
+}
+
+.heading {
+  background-color: gray;
+  color: white;
+  padding: 8px 10px;
+  border: thin solid cornflowerblue;
+  /* margin-top: 6px; */
+}
+
+/* .navi {
+    display: inline;
+    float: right;
+    margin-left: 15px;
+    margin-right: 15px;
+} */
+
+.navCon {
+  float: right;
+  margin-top: -30px;
+}
+
+.navli a {
+  color: white;
+  padding-right: 40px;
+}
+
+.navli {
+  display: inline;
+}
+
+article {
+  padding: 25px;
+}
+
+h3 {
+  font-size: larger;
+}
+
+p {
+  font-size: 17px;
+}
+
+footer {
+  clear: both;
+  background-color: gray;
+  color: white;
+  /* padding: 18px; */
+  border: thin solid cornflowerblue;
+  bottom: 0;
+  /* position: absolute; */
+  width: 100%;
+}
+
+.footeri {
+  display: inline;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+main {
+  width: 100%;
+  float: left;
+  background-color: aliceblue;
+}
+
+.conndetails {
+  width: 640px;
+}
+
+aside {
+  width: 270px;
+  float: right;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: aliceblue;
+}
+body {
+  background-color: aliceblue;
+}
+.inlinediv {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inlineimg {
+  display: table-cell;
+  vertical-align: middle;
+  width: 30%;
+  overflow: auto;
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 11px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: #008cba;
+} /* Blue */
+.button3 {
+  background-color: #f44336;
+} /* Red */
+
+.formcl {
+  display: inline;
+}
+.welcome {
+  margin-top: 40px;
+  color: teal;
+}
+
+.imgheader {
+  margin-top: -21px;
+}
+
+.imgfooter {
+  float: right;
+  padding-bottom: 40px;
+  width: 8%;
+}
+
+.mainheading {
+  color: teal;
+  margin-top: 15px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.copyimg {
+  font-size: 30px;
+  color: black;
+}
+
+.fltright {
+  float: right;
+}
+
+.tbl,
+th,
+tr,
+td {
+  margin-top: 15px;
+  border: thin solid black;
+}
+
+.category {
+  color: black;
+}
+
+.username {
+  display: inline;
+  float: right;
+}

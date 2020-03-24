@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Course Details Page</title>
+    <link
+      href="/assets/stylesheets/styles.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="/assets/stylesheets/index.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <%- include('partials/header.ejs', {sessionData : sessionData}) %> <%-
+  include('partials/nav.ejs', {sessionData : sessionData}) %> %>
+  <body>
+    <table>
+      <% if (Object.keys(data).length != 0) { %>
+      <tr>
+        <th>Course Number</th>
+        <th>Title</th>
+        <th>Term</th>
+        <th>Instructor</th>
+        <th>Active</th>
+        <th>Action</th>
+      </tr>
+      <% for(var i = 0; i< data.length; i++) { %>
+      <tr>
+        <td><%= data[i].CourseID %></td>
+        <td><%= data[i].Title %></td>
+        <td><%= data[i].Term %></td>
+        <td><%= data[i].Instructor %></td>
+        <td>
+          <%= data[i].Active %> &nbsp;<button
+            id="togglebtn"
+            onclick="updateActive('<%= i %>')"
+          >
+            Toggle
+          </button>
+        </td>
+        <td>
+          <button
+            onclick="deleteCourse('<%= data[i].CourseID %>', '<%= data[i].Title %>', '<%= data[i].Term %>', '<%= data[i].Instructor%>', '<%= data[i].Active%>')"
+          >
+            Delete
+          </button>
+          <form action="/form/<%= i %>" method="GET">
+            <button>
+              Update
+            </button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+      <tr>
+        <td colspan="6"><%- include('image.ejs') %></td>
+      </tr>
+      <% } else { %>
+      <tr>
+        <td>No Course Details available!</td>
+      </tr>
+      <% } %>
+    </table>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+      integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function deleteCourse(CourseID, Title, Term, Instructor, Active) {
+        axios
+          .delete("/courseDetails", {
+            data: {
+              CourseID: CourseID,
+              Title: Title,
+              Term: Term,
+              Instructor: Instructor,
+              Active: Active
+            }
+          })
+          .then(function(response) {
+            window.location = "/";
+          })
+          .catch(function(error) {
+            alert("Error delete the course data");
+          });
+      }
+
+      function updateActive(id) {
+        console.log(id);
+        axios
+          .patch("/courseDetails/" + id)
+          .then(function(response) {
+            window.location = "/";
+          })
+          .catch(function(err) {
+            alert("Error updating the course active field");
+          });
+      }
+    </script>
+  </body>
+</html>

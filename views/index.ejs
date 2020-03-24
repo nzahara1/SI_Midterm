@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="/assets/stylesheets/index.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <%- include('partials/header.ejs', {sessionData : sessionData}) %> <%-
+  include('partials/nav.ejs', {sessionData : sessionData}) %> %>
+  <body>
+    <h3>Enter Course Details</h3>
+    <div>
+      <form
+        method="POST"
+        action="/courseDetails"
+        id="f_form"
+        onsubmit="route(event)"
+      >
+        <% if (Object.keys(data).length <= 0) { %>
+        <label (for="courseId" )>Course ID</label><br />
+        <input type="text" name="courseId" required />
+        <br />
+        <label for="title">Title</label><br />
+        <input type="text" name="title" required /><br />
+        <label for="term">Term</label><br />
+        <input type="text" name="term" required />
+        <br />
+        <label for="instructor">Instructor</label><br />
+        <input type="text" name="instructor" required/>
+        <br />
+        <input type="submit" name="btnsubmit" />
+        <% } else { %>
+        <label (for="courseId" )>Course ID</label><br />
+        <input
+          type="text"
+          name="courseId"
+          id="courseId"
+          value="<%= data.CourseID %>"
+          required
+        />
+        <br />
+        <label for="title">Title</label><br />
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value="<%= data.Title %>"
+          required
+        /><br />
+        <label for="term">Term</label><br />
+        <input
+          type="text"
+          name="term"
+          id="term"
+          value="<%= data.Term %>"
+          required
+        />
+        <br />
+        <label for="instructor">Instructor</label><br />
+        <input
+          type="text"
+          name="instructor"
+          id="instructor"
+          required
+          value="<%= data.Instructor %>"
+        />
+        <br />
+        <input
+          id = "id_val"
+          value="<%=
+        id %>"
+          type="hidden"
+        />
+        <input type="submit" name="update" id="update" value="update" /><% } %>
+      </form>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+      integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function route(event) {
+        if (document.getElementById("update") != null) {
+          event.preventDefault();
+          axios
+            .put("/form", {
+              CourseID: document.getElementById("courseId").value,
+              Title: document.getElementById("title").value,
+              Term: document.getElementById("term").value,
+              Instructor: document.getElementById("instructor").value,
+              id: document.getElementById("id_val").value
+            })
+            .then(function(response) {
+              window.location = "/";
+            })
+            .catch(function(err) {
+              console.log(err);
+            });
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>

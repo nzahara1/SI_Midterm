@@ -1,0 +1,33 @@
+table,
+th,
+td {
+  border: thin solid;
+  background-color: #f1948a;
+  color: #78281f;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
+  height: 30%;
+  text-align: center;
+  table-layout: fixed;
+  width: 70%;
+}
+
+td {
+  width: 25%;
+}
+
+img {
+  width: 80%;
+  height: 60%;
+}
+
+#button1 {
+  width: 200px;
+  height: 40px;
+  background-color: lightblue;
+}
+
+#container {
+  text-align: center;
+}
