@@ -72,7 +72,7 @@
     <script>
       function deleteCourse(CourseID, Title, Term, Instructor, Active) {
         axios
-          .delete("/courseDetails", {
+          .delete("/course-details", {
             data: {
               CourseID: CourseID,
               Title: Title,
@@ -90,9 +90,8 @@
       }
 
       function updateActive(id) {
-        console.log(id);
         axios
-          .patch("/courseDetails/" + id)
+          .patch("/course-details/" + id)
           .then(function(response) {
             window.location = "/";
           })

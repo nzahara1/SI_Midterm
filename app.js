@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
-var course = require("./routes/courseDetails");
-var index = require("./routes/index");
+var course = require("./routes/courseDetails.js");
+var index = require("./routes/index.js");
 var session = require("express-session");
 var login = require("./routes/login.js");
 
@@ -16,12 +16,12 @@ app.use(
 
 app.use("/assets", express.static("assets"));
 
-app.use("/courseDetails", course);
+app.use("/course-details", course);
 
 /**
  * The route loads the course details page.
  */
-app.get("/", function(req, res) {
+app.get(["/", "/course-details"], function(req, res) {
   courseData = req.session.theCourse;
   if (courseData == undefined || courseData.length <= 0) {
     res.render("details", { data: "", sessionData: req.session.userProfile });

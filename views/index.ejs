@@ -14,7 +14,7 @@
     <div>
       <form
         method="POST"
-        action="/courseDetails"
+        action="/course-details"
         id="f_form"
         onsubmit="route(event)"
       >
@@ -28,7 +28,7 @@
         <input type="text" name="term" required />
         <br />
         <label for="instructor">Instructor</label><br />
-        <input type="text" name="instructor" required/>
+        <input type="text" name="instructor" required />
         <br />
         <input type="submit" name="btnsubmit" />
         <% } else { %>
@@ -68,7 +68,7 @@
         />
         <br />
         <input
-          id = "id_val"
+          id="id_val"
           value="<%=
         id %>"
           type="hidden"
@@ -86,12 +86,11 @@
         if (document.getElementById("update") != null) {
           event.preventDefault();
           axios
-            .put("/form", {
+            .put("/course-details/" + document.getElementById("id_val").value, {
               CourseID: document.getElementById("courseId").value,
               Title: document.getElementById("title").value,
               Term: document.getElementById("term").value,
-              Instructor: document.getElementById("instructor").value,
-              id: document.getElementById("id_val").value
+              Instructor: document.getElementById("instructor").value
             })
             .then(function(response) {
               window.location = "/";

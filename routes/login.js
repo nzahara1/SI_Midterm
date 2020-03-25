@@ -12,7 +12,7 @@ router.get("/", function(req, res) {
     req.session.userProfile &&
     userDB.isUserValid(req.session.userProfile._userDetails)
   ) {
-    res.redirect("/courseDetails");
+    res.redirect("/course-details");
   } else {
     req.session.userProfile = userDB.getRandromUserForLogin();
     res.redirect("/");
