@@ -5,7 +5,14 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var userDB = require("../utilities/userDB.js");
 
 /**
- *This route logs in the user.
+ * @swagger
+ * /login:
+ *  get:
+ *    description: This route logs in the user.
+ *    produces: html
+ *    responses:
+ *      'details.ejs':
+ *        description: A successful response
  */
 router.get("/", function(req, res) {
   if (
@@ -15,6 +22,7 @@ router.get("/", function(req, res) {
     res.redirect("/course-details");
   } else {
     req.session.userProfile = userDB.getRandromUserForLogin();
+    req.session.theCourse = []
     res.redirect("/");
   }
 });

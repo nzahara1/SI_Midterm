@@ -20,22 +20,22 @@
       >
         <% if (Object.keys(data).length <= 0) { %>
         <label (for="courseId" )>Course ID</label><br />
-        <input type="text" name="courseId" required />
+        <input type="text" name="CourseID" required />
         <br />
         <label for="title">Title</label><br />
-        <input type="text" name="title" required /><br />
+        <input type="text" name="Title" required /><br />
         <label for="term">Term</label><br />
-        <input type="text" name="term" required />
+        <input type="text" name="Term" required />
         <br />
         <label for="instructor">Instructor</label><br />
-        <input type="text" name="instructor" required />
+        <input type="text" name="Instructor" required />
         <br />
         <input type="submit" name="btnsubmit" />
         <% } else { %>
         <label (for="courseId" )>Course ID</label><br />
         <input
           type="text"
-          name="courseId"
+          name="CourseID"
           id="courseId"
           value="<%= data.CourseID %>"
           required
@@ -44,7 +44,7 @@
         <label for="title">Title</label><br />
         <input
           type="text"
-          name="title"
+          name="Title"
           id="title"
           value="<%= data.Title %>"
           required
@@ -52,7 +52,7 @@
         <label for="term">Term</label><br />
         <input
           type="text"
-          name="term"
+          name=Term"
           id="term"
           value="<%= data.Term %>"
           required
@@ -61,7 +61,7 @@
         <label for="instructor">Instructor</label><br />
         <input
           type="text"
-          name="instructor"
+          name="Instructor"
           id="instructor"
           required
           value="<%= data.Instructor %>"
